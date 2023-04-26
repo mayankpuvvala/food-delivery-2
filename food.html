@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+font-family: Arial;
+}
+.nutrient-info {
+width: 100%;
+max-width: 600px;
+margin: 0 auto;
+padding: 20px;
+}
+.nutrient-info h2 {
+text-align:center;
+}
+.nutrient-info p {
+text-align:center;
+}
+.protein {
+display:none;
+}
+.carbs {
+display:none;
+}
+.fats {
+display:none;
+}
+.vitamins {
+display:none;
+}
+.minerals {
+display:none;
+}
+.fiber {
+display:none;
+}
+.water {
+display:none;
+}
+h3{
+    text-align: center;
+}
+
+.back-button {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.back-button input[type="button"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.back-button input[type="button"]:hover {
+  background-color: #45a049;
+}
+</style>
+</head>
+<body>
+
+<div class="nutrient-info">
+<h2>Nutrient Information</h2>
+
+<div class="protein">
+<h3>Protein</h3>
+<p>Protein is an essential macronutrient that helps build muscle, repair tissue, and make enzymes and hormones. Foods high in protein include:<br><br><b>Lean meats</b>, <b>poultry</b>, <b>fish</b>, <b>eggs</b>, <b>dairy products</b>, <b>beans</b>, <b>lentils</b>, and <b>nuts</b>.</p>
+</div>
+
+<div class="carbs">
+<h3>Carbohydrates</h3>
+<p>Carbohydrates are a macronutrient that provides energy for the body. Foods high in carbohydrates include:<br><br><b>Fruits</b>, <b>vegetables</b>, <b>breads</b>, <b>pasta</b>, and <b>rice</b>.</p>
+</div>
+
+<div class="fats">
+<h3>Fats</h3>
+<p>Fats are a macronutrient that provides energy and helps the body absorb vitamins. Foods high in healthy fats include:<br><br><b>Avocados</b>, <b>nuts</b>, <b>seeds</b>, and <b>fatty fish</b>.</p>
+</div>
+
+<div class="vitamins">
+<h3>Vitamins</h3>
+<p>Vitamins are essential micronutrients that the body needs in small amounts to function properly. Different vitamins have different functions and can be found in a variety of foods.</p>
+</div>
+
+<div class="minerals">
+<h3>Minerals</h3>
+<p>Minerals are essential micronutrients that the body needs in small amounts to function properly. Different minerals have different functions and can be found in a variety of foods.</p>
+</div>
+
+<div class="fiber">
+<h3>Fiber</h3>
+<p>Fiber is a type of carbohydrate that the body can't digest. It helps regulate the body's use of sugars and helps keep hunger and blood sugar in check. Foods high in fiber include:<br><br><b>Fruits</b>, <b>vegetables
+    
+</b>, <b>whole grains</b>, and <b>legumes</b>.</p>
+</div>
+
+<div class="water">
+<h3>Water</h3>
+<p>Water is essential for life and is necessary for many bodily functions. It is important to drink enough water to stay hydrated. Water can be found in beverages and foods such as <b>fruits</b> and <b>vegetables</b>.</p>
+</div>
+</div>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const nutrient = urlParams.get('nutrient');
+
+if (nutrient) {
+document.querySelector(`.${nutrient}`).style.display = 'block';
+}
+</script>=
+<div class="back-button">
+  <input type="button" value="Proceed to Search" onclick="window.location.href='index.html'">
+</div>
+</body>
+</html>
