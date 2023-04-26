@@ -1,0 +1,133 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <style>
+        
+.checkout-button {
+  background-color: #4CAF50; /* green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.checkout-button:hover {
+  background-color: #3e8e41; /* darker green */
+}
+    </style>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <p>Total Cost: <span id="total"></span></p>
+    
+    <script>
+        // get total cost from query parameter
+        var urlParams = new URLSearchParams(window.location.search);
+        var total = urlParams.get("total");
+        
+        // display total cost
+        document.getElementById("total").textContent = "Rs." + total;
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    
+    <style>
+        /* add CSS styles here */
+        .item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .total {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .checkout-button {
+            background-color: #4CAF50; /* green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .checkout-button:hover {
+            background-color: #3e8e41; /* darker green */
+        }
+    </style>
+</head>
+<body>
+    <h1>Checkout</h1>
+    
+    <div id="items"></div>
+    
+    <p class="total">Total Cost: <span id="total"></span></p>
+    
+    <button class="checkout-button">Proceed to Payment</button>
+    
+    <script>
+        // get cart items from query parameter
+        var urlParams = new URLSearchParams(window.location.search);
+        var cart = JSON.parse(decodeURIComponent(urlParams.get("cart")));
+        
+        // display cart items
+        var itemsDiv = document.getElementById("items");
+        var total = 0;
+        cart.forEach(function(item) {
+            var itemDiv = document.createElement("div");
+            itemDiv.className = "item";
+            
+            var img = document.createElement("img");
+            img.src = item.image;
+            itemDiv.appendChild(img);
+            
+            var name = document.createElement("span");
+            name.textContent = item.name + " || Rs." + item.price;
+            itemDiv.appendChild(name);
+            
+            itemsDiv.appendChild(itemDiv);
+            
+            total += item.price;
+        });
+        
+        // display total cost
+        document.getElementById("total").textContent = "Rs." + total;
+        
+        // redirect to payment page with total cost as query parameter
+        document.querySelector(".checkout-button").addEventListener("click", function() {
+            window.location.href = "payment.html?total=" + total;
+        });
+        
+        // implement proceed to payment logic here
+        // document.querySelector(".checkout-button").addEventListener("click", function() {
+        //     alert("Proceeding to payment...");
+        // });
+    </script>
+</body>
+</html>
+```

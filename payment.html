@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/payment.css">
+    <title>payment portal</title>
+    <style>
+        .address{
+            color: blueviolet;
+        }
+        
+        .payment-option input[type="radio"] {
+            margin-right: 10px;
+        }
+        .pay-button {
+    display: block;
+    width: 30%;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}.pay-button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <form action="">
+        <h1 style="text-align: center;">payment gateway</h1>
+        
+        <p class="total">Total Cost: <span id="total"></span></p>
+        <p class="tax">Tax (18%): <span id="tax"></span></p>
+        <p class="final">Final Amount to Pay: <span id="final"></span></p>
+    
+    <script>
+        // get total cost from query parameter
+        var urlParams = new URLSearchParams(window.location.search);
+        var total = parseFloat(urlParams.get("total"));
+
+        // calculate tax
+        var tax = total * 0.18;
+
+        // calculate final amount to pay
+        var final = total + tax;
+
+        // display total cost, tax and final amount to pay
+        document.getElementById("total").textContent = "Rs." + total.toFixed(2);
+        document.getElementById("tax").textContent = "Rs." + tax.toFixed(2);
+        document.getElementById("final").textContent = "Rs." + final.toFixed(2);
+    </script>
+
+        <h2>contact info</h2>
+        <p>Required fields are denoted by *</p>
+        <p>Name: *<input type="text" name="name" required placeholder="Enter Your Name"></p>
+        <fieldset>
+            <legend class="overflow">Gender</legend>
+        <p><input type="radio" name="gender" id="male"> Male
+         <input type="radio" name="gender" id="female"> Female</p>
+    </fieldset>
+    <p>
+        address: <textarea name="Address" style="text-transform: capitalize;" id="Address" cols="30" rows="10"  placeholder="Enter your Address"></textarea>
+    </p>
+    <p>email: <input type="email" name="email" id="email" required placeholder="Enter Your Email"></p>
+    <p>pincode: <input type="number" name="pincode" id="pincode" placeholder="Enter Your Pincode"></p>
+    
+    <div class="payment-options">
+        <h2>Payment Options</h2>
+        <div class="payment-option">
+            <input type="radio" name="payment-option" value="credit-card" checked> Credit Card
+        </div>
+        <div class="payment-option">
+            <input type="radio" name="payment-option" value="debit-card"> Debit Card
+        </div>
+            <input type="radio" name="payment-option" value="net-banking">   Net Banking
+        </div>
+    </div>
+</div>
+
+</div>
+
+<button class="pay-button">Pay Now</button>
+</div>
+
+<!-- <a href="index.html">Go Back</a>
+
+    <h2>payment information</h2>
+    <p>Card Type
+    <select name="card-type" id="card-type">
+        <option value="" style="text-transform: capitalize;">--select a card--</option>
+        <option value="visa" >VISA</option>
+        <option value="rupay">RUPAY</option>
+    </select>
+    </p>
+    <p>
+        card number <input type="number" name="card-number" id="card-number">
+
+    </p>
+    <p>
+        expiry date <input type="date" name="exp-date" id="exp-date">
+
+    </p> -->
+    <!-- <p>
+        CVV <input type="password" name="cvv" id="cvv" placeholder="Enter Your CVV">
+    </p>
+
+    <input type="submit" value="PAY NOW" >
+    </form>
+</div> -->
+<a href="index.html">Go Back</a>
+</body>
+</html>
